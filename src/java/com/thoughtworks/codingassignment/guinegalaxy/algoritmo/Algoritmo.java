@@ -1,14 +1,16 @@
 package com.thoughtworks.codingassignment.guinegalaxy.algoritmo;
 
-public abstract class Algoritmo {
-	int valor;
+import com.thoughtworks.codingassignment.guinegalaxy.NumberRomano;
 
-	public Algoritmo(String algoritmo) {
-		this.decode(algoritmo);
+public abstract class Algoritmo {
+	NumberRomano valor;
+
+	public Algoritmo(String value) {
+		this.valor = new NumberRomano(value);
 	}
 
-	public Algoritmo(int valor) {
-		this.valor = valor;
+	public Algoritmo(int valueInt) {
+		this.valor = NumberRomano.parseInt(valueInt);
 	}
 
 	public static Algoritmo parse(String algoritmo, Class<Algoritmo> clazz) {
@@ -20,14 +22,23 @@ public abstract class Algoritmo {
 	}
 
 	public String getAlgoritmo() {
-		return this.encode(valor);
+		return valor.toString();
 	}
 
-	public int getValor() {
+	public NumberRomano getValor() {
 		return valor;
 	}
 
-	protected abstract int decode(String algoritmo);
+	protected abstract NumberRomano decode(String algoritmo);
 
-	protected abstract String encode(int valor);
+	protected abstract String encode(NumberRomano valor);
+	
+	public boolean isAlgoritmo(String word){
+		if(this.decode(word)!=null){
+			return true;
+		}
+		return false;
+	}
+	
+	public abstract AlgoritmoEnum getType();
 }

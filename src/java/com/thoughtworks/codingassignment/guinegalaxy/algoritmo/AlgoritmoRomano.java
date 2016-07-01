@@ -1,5 +1,7 @@
 package com.thoughtworks.codingassignment.guinegalaxy.algoritmo;
 
+import com.thoughtworks.codingassignment.guinegalaxy.NumberRomano;
+
 public class AlgoritmoRomano extends Algoritmo{
 
 	public AlgoritmoRomano(int valor) {
@@ -11,14 +13,17 @@ public class AlgoritmoRomano extends Algoritmo{
 	}
 
 	@Override
-	protected int decode(String algoritmo) {
-		return 0;
+	protected NumberRomano decode(String algoritmo) {
+		return new NumberRomano(algoritmo);
+	}
+	
+	@Override
+	protected String encode(NumberRomano value) {
+		return value.toString();
 	}
 
 	@Override
-	protected String encode(int valor) {
-		return null;
-	}
-
-	
+	public AlgoritmoEnum getType() {
+		return AlgoritmoEnum.ROMANO;
+	}	
 }

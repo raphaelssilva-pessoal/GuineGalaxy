@@ -37,7 +37,6 @@ public class FileUtil {
 
 	private static File getFile(String path) throws Exception {
 		if (path != null) {
-			System.out.println(path);
 			if (fileExist(path)) {
 				return new File(path);
 			} else {
