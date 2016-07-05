@@ -18,3 +18,7 @@ Devesse executar os seguintes comando, considerando que {root} e o mesmo que rai
 
 {root}$ src/main/java/com/thoughtworks/codingassignment/guinegalaxy/Start {filepath}
 
+
+para o exemplo ja existe pode se usar este comando.
+
+{root}$ src/main/java/com/thoughtworks/codingassignment/guinegalaxy/Start {root}/example/teste.txt
