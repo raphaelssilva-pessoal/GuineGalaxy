@@ -5,6 +5,15 @@ import com.thoughtworks.codingassignment.guinegalaxy.NumberRomano;
 public class Data {
 	String name;
 	NumberRomano value;
+	boolean multiplicador = false;
+
+	public boolean isMultiplicador() {
+		return multiplicador;
+	}
+
+	public void setMultiplicador(boolean multiplicador) {
+		this.multiplicador = multiplicador;
+	}
 
 	public String getName() {
 		return name;
@@ -23,6 +32,6 @@ public class Data {
 	}
 	@Override
 	public String toString() {
-		return this.name;
+		return this.name + this.value.integerValue();
 	}
 }

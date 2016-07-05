@@ -11,7 +11,7 @@ public class NumberRomano  {
 	
 	String value;
 	
-	private String laterSymbol(String romano, int cursor) {
+	private static String laterSymbol(String romano, int cursor) {
 		if ((romano.length() - cursor + 2) < romano.length()) {
 			return romano.substring(romano.length() - cursor + 1, romano.length() - cursor + 2);
 		} else {
@@ -36,6 +36,15 @@ public class NumberRomano  {
 	}
 
 	public Integer integerValue(){
+		return integerValue(value);
+	}
+	
+	@Override
+	public String toString() {
+		return value;
+	}
+
+	public static int integerValue(String value) {
 		int cursor = 1;
 		Integer arabico = 0;
 		while (cursor <= value.length()) {
@@ -76,11 +85,6 @@ public class NumberRomano  {
 			cursor++;
 		}
 		return arabico;
-	}
-	
-	@Override
-	public String toString() {
-		return value;
 	}
 	
 }

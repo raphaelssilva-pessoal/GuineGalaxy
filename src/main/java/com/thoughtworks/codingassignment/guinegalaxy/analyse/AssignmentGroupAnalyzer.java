@@ -35,14 +35,13 @@ public class AssignmentGroupAnalyzer extends AssignmentAnalyzer implements Analy
 			}
 		}
 		
-		if(!wordNotFoundData.isEmpty()){
-			 
-			NumberRomano valueWordNotFoundData = new NumberRomano(value.toString().replace(algoritmo, ""));
-			String lineNew = wordNotFoundData+" is "+valueWordNotFoundData;
-			System.out.println(lineNew);
-			super.process(lineNew, knowledge);					
+		if(!wordNotFoundData.isEmpty()){			 
+			Data data = new Data();
+			data.setName(wordNotFoundData);
+			data.setValue(new NumberRomano(value.integerValue()/NumberRomano.integerValue(algoritmo)));
+			data.setMultiplicador(true);
+			knowledge.getDatas().add(data);				
 		}
 	}
-
-
 }
+

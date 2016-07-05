@@ -6,7 +6,7 @@ public abstract class Algoritmo {
 	NumberRomano valor;
 
 	public Algoritmo(String value) {
-		this.valor = new NumberRomano(value);
+		this.valor = this.decode(value);
 	}
 
 	public Algoritmo(int valueInt) {

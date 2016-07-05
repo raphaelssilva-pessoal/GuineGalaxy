@@ -46,20 +46,27 @@ public class Knowledge {
 		for (Information information : this.informations) {
 			try {
 				if (information.getDatasName() != null && !information.getDatasName().isEmpty()) {
-					String sum = "";
-					StringBuilder informationStr = new StringBuilder();;
-					for (String dataStr : information.getDatasName()) {
+					int multicador = 0;
+					String algoritmo = "";
+					
+					StringBuilder informationStr = new StringBuilder();
+					
+					for (String dataStr: information.getDatasName()) {
 						Data data = this.findDataByName(dataStr);
-
 						if (data == null) {
 							throw new Exception("I have no idea what you are talking about");
 						}
-
-						sum += data.getValue().toString();
+						
+						if(!data.isMultiplicador()){
+							algoritmo+=data.getValue().toString();
+						}else{
+							multicador+=data.getValue().integerValue();
+						}
+						
 						informationStr.append(dataStr + " ");
 					}
 					informationStr.append("is ");
-					informationStr.append(new NumberRomano(sum).integerValue());
+					informationStr.append(multicador>0?NumberRomano.integerValue(algoritmo)*multicador:NumberRomano.integerValue(algoritmo));
 					if (information.getSuffixValue() != null) {
 						informationStr.append(" " + information.getSuffixValue());
 					}
